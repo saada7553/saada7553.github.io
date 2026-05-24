@@ -3,6 +3,8 @@ layout: default
 title: Privacy Policy
 ---
 
+# Privacy Policy
+
 **Engine Simulator**
 
 **Effective date:** May 24, 2026
