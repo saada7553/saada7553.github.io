@@ -1,0 +1,127 @@
+/* Engine Simulator — shared styling for the public legal / support pages.
+   Mirrors the in-app dashboard aesthetic (dark surfaces, hairline strokes,
+   JetBrains Mono, blue accent). Presentation only — page text is unchanged.
+   Link this from each page and deploy it alongside them. */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap');
+
+:root {
+  --bg: #141414;
+  --bg-deep: #0d0d0d;
+  --text: #ffffff;
+  --text-2: rgba(255,255,255,0.72);
+  --muted: rgba(255,255,255,0.45);
+  --accent: #338FF5;
+  --ce: #FFD23B;
+  --stroke: rgba(255,255,255,0.12);
+  --faint: rgba(255,255,255,0.08);
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-2);
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 500px at 50% -10%, rgba(51,143,245,0.10), transparent 60%),
+    linear-gradient(var(--bg-deep), var(--bg) 40%);
+}
+
+/* Brand bar */
+.lhead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 60px;
+  padding: 0 24px;
+  background: rgba(13,13,13,0.72);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--faint);
+}
+.lhead .dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--ce);
+  box-shadow: 0 0 12px var(--ce);
+}
+.lhead .wm {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--text);
+}
+
+/* Document column */
+.legal {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 24px 100px;
+}
+
+.legal h1 {
+  margin: 0 0 26px;
+  font-size: clamp(30px, 6vw, 46px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  color: var(--text);
+}
+.legal h2 {
+  margin: 46px 0 14px;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--text);
+}
+.legal h3 {
+  margin: 30px 0 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+.legal p { margin: 0 0 16px; }
+.legal strong { color: var(--text); font-weight: 700; }
+
+.legal a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(51,143,245,0.4);
+}
+.legal a:hover { border-bottom-color: var(--accent); }
+
+.legal ul { margin: 0 0 18px; padding: 0; list-style: none; }
+.legal li { position: relative; margin: 0 0 10px; padding-left: 22px; }
+.legal li::before {
+  content: "";
+  position: absolute;
+  left: 4px; top: 11px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.legal hr {
+  border: 0;
+  border-top: 1px solid var(--faint);
+  margin: 38px 0;
+}
